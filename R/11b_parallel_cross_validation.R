@@ -39,18 +39,19 @@ rf_results <- list()
 lr_results <- list()
 rf_pc_results <- list()
 lr_pc_results <- list()
-# for (i in 1:length(folds)) {
-foreach (i = 1:length(folds), 
-         .packages = c("purrr",
-                       "magrittr",
-                       "futile.logger",
-                       "caret",
-                       "ModelMetrics",
-                       "foreach",
-                       "doParallel",
-                       "doRNG",
-                       "here")
-         ) %dopar% {
+
+for (i in 1:length(folds)) {
+# foreach (i = 1:length(folds), 
+#          .packages = c("purrr",
+#                        "magrittr",
+#                        "futile.logger",
+#                        "caret",
+#                        "ModelMetrics",
+#                        "foreach",
+#                        "doParallel",
+#                        "doRNG",
+#                        "here")
+#          ) %dopar% {
   
   dir_path <- here("output", "cv", paste0("fold_", i))
   create_dir(dir_path)
