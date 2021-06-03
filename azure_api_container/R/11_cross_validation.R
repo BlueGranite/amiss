@@ -2,14 +2,12 @@ library(here)
 
 source(here("R", "visualizations.R"))
 source(here("R", "constants.R"))
-# source(here("R", "impute_and_train.R"))
-source(here("R", "impute_and_train_2.R"))
+source(here("R", "impute_and_train.R"))
 source(here("R", "predict_on_test_set.R"))
 source(here("R", "utils.R"))
 source(here("R", "imputation_definitions.R"))
 
-# cores <- get_env_cores()
-cores <- detectCores()/2
+cores <- get_env_cores()
 
 seed <- 10
 set.seed(seed)
@@ -17,8 +15,7 @@ set.seed(seed)
 training_data <- read.csv(here("output", "data", FILE_PREPROCESSED_TRAINING_DATA_CSV), row.names = 1, as.is = TRUE)
 outcomes <- read.csv(here("output", "data", FILE_TRAINING_OUTCOMES_CSV), row.names = 1, as.is = TRUE)[[1]]
 
-# n_folds <- 100
-n_folds <- 10
+n_folds <- 100
 rows <- NROW(training_data)
 
 # Reorder rows
@@ -39,19 +36,7 @@ rf_results <- list()
 lr_results <- list()
 rf_pc_results <- list()
 lr_pc_results <- list()
-
 for (i in 1:length(folds)) {
-# foreach (i = 1:length(folds), 
-#          .packages = c("purrr",
-#                        "magrittr",
-#                        "futile.logger",
-#                        "caret",
-#                        "ModelMetrics",
-#                        "foreach",
-#                        "doParallel",
-#                        "doRNG",
-#                        "here")
-#          ) %dopar% {
   
   dir_path <- here("output", "cv", paste0("fold_", i))
   create_dir(dir_path)
@@ -66,16 +51,9 @@ for (i in 1:length(folds)) {
   write.csv(fold_te_datas[[i]], te_data_path)
   write.csv(fold_te_outcomes[[i]], te_outcome_path)
   
-  impute_and_train(training_path = tr_data_path,
-                   outcome_path = tr_outcome_path,
-                   output_path = dir_path,
-                   mice_hyperparameter_grids = mice_hyperparameter_grids,
-                   other_hyperparameter_grids = other_hyperparameter_grids,
-                   single_value_imputation_hyperparameter_grids = single_value_imputation_hyperparameter_grids,
-                   cores = cores,
-                   seed = 42,
-                   lean = TRUE)
-  
+  impute_and_train(training_path = tr_data_path, outcome_path = tr_outcome_path, output_path = dir_path,
+                   mice_hyperparameter_grids = mice_hyperparameter_grids, other_hyperparameter_grids = other_hyperparameter_grids, single_value_imputation_hyperparameter_grids = single_value_imputation_hyperparameter_grids,
+                   cores = cores, seed = 42, lean = TRUE)
   predict_on_test_set(test_path = te_data_path, outcome_path = te_outcome_path, tr_output_path = dir_path, results_dir_path = file.path(dir_path, "results"), cores = cores, seed = 42, lean = TRUE)
   
   rf_results[[i]] <- read.csv(file.path(dir_path, "results", FILE_RF_PERFORMANCE_CSV))

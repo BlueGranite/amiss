@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "d25c9490-5b10-445e-a1b6-796fefdee1ee",
+		"name": "BlueprintGenetics_Amiss",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST -  amiss",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"account_url\": \"https://genomicsdatalake.core.windows.net\", \n    \"account_credential\": \"gfHgyeOy7iWjXKi9p2ijKCgnzVR1Da8/pXtQTkHUHGqhWVrCOGhqfI1ifbDxTZ/sFCg/u/JnQIstA/BcUD8mUA==\",\n    \"container\": \"demodata\",\n    \"task\": {\n        \"vcf_path\": \"amiss/clinvar_20190624.vep.vcf_head_10000\",\n        \"cadd_snv_path\": \"amiss/CADD_clingen.tsv\",\n        \"cadd_indel\": \"amiss/CADD_clingen_indel.tsv\"\n        }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/amiss",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"amiss"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
