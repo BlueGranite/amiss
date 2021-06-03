@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"account_url\": \"https://genomicsdatalake.core.windows.net\", \n    \"account_credential\": \"gfHgyeOy7iWjXKi9p2ijKCgnzVR1Da8/pXtQTkHUHGqhWVrCOGhqfI1ifbDxTZ/sFCg/u/JnQIstA/BcUD8mUA==\",\n    \"container\": \"demodata\",\n    \"task\": {\n        \"vcf_path\": \"amiss/clinvar_20190624.vep.vcf_head_10000\",\n        \"cadd_snv_path\": \"amiss/CADD_clingen.tsv\",\n        \"cadd_indel\": \"amiss/CADD_clingen_indel.tsv\"\n        }\n}",
+					"raw": "{\n    \"account_url\": \"genomicsdatalake\", \n    \"account_credential\": \"gfHgyeOy7iWjXKi9p2ijKCgnzVR1Da8/pXtQTkHUHGqhWVrCOGhqfI1ifbDxTZ/sFCg/u/JnQIstA/BcUD8mUA==\",\n    \"container\": \"demodata\",\n    \"task\": {\n        \"vcf_path_orig\": \"amiss/clinvar_20190624.vep.vcf_head_10000\",\n        \"vcf_path\": \"amiss/CADD_clingen_indel.tsv\",\n        \"cadd_snv_path\": \"amiss/CADD_clingen.tsv\",\n        \"cadd_indel_path\": \"amiss/CADD_clingen_indel.tsv\"\n        }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -24,6 +24,70 @@
 					"protocol": "http",
 					"host": [
 						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"amiss"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - status",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sessionid\": \"20210601113706_14ffda7b-9e4c-46ac-b32f-17b3a225d173\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST -  amiss (on ACI)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"account_url\": \"genomicsdatalake\", \n    \"account_credential\": \"gfHgyeOy7iWjXKi9p2ijKCgnzVR1Da8/pXtQTkHUHGqhWVrCOGhqfI1ifbDxTZ/sFCg/u/JnQIstA/BcUD8mUA==\",\n    \"container\": \"demodata\",\n    \"task\": {\n        \"vcf_path\": \"amiss/clinvar_20190624.vep.vcf_head_10000\",\n        \"cadd_snv_path\": \"amiss/CADD_clingen.tsv\",\n        \"cadd_indel_path\": \"amiss/CADD_clingen_indel.tsv\"\n        }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://bgamiss.eastus.azurecontainer.io:5000/api/amiss",
+					"protocol": "http",
+					"host": [
+						"bgamiss",
+						"eastus",
+						"azurecontainer",
+						"io"
 					],
 					"port": "5000",
 					"path": [
