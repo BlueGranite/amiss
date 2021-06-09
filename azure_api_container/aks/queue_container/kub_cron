@@ -1,0 +1,3 @@
+*/5 * * * * python3 /opt/blueprintgenetics-azure-aks-queue/kubernetes_activator.py >> /var/log/kubernetes_activator.log 2>&1
+*/5 * * * * python3 /opt/blueprintgenetics-azure-aks-queue/kubernetes_reaper.py >> /var/log/kubernetes_reaper.log 2>&1
+# An empty line is required at the end of this file for a valid cron file.

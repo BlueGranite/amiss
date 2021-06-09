@@ -1,0 +1,48 @@
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: kubernetes-reaper
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          serviceAccountName: queue-acc
+          containers:
+          - name: queue-reaper
+            image: sgbiodevpipelines.azurecr.io/seagen-azure-qks-queue:07b719a
+            imagePullPolicy: IfNotPresent
+            command:
+              - python3
+              - /opt/seagen-azure-aks-queue/kubernetes_reaper.py 
+            resources:
+              limits:
+                memory: "64Mi"
+                cpu: "100m"
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: kubernetes-activator
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          serviceAccountName: queue-acc
+          containers:
+          - name: queue-activator
+            image: sgbiodevpipelines.azurecr.io/seagen-azure-qks-queue:07b719a
+            imagePullPolicy: IfNotPresent
+            command:
+              - python3
+              - /opt/seagen-azure-aks-queue/kubernetes_activator.py 
+            resources:
+              limits:
+                memory: "64Mi"
+                cpu: "100m"

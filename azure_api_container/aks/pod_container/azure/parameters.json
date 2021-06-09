@@ -1,0 +1,51 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "resourceName": {
+            "value": "sgbioiaksdemo"
+        },
+        "location": {
+            "value": "westus2"
+        },
+        "dnsPrefix": {
+            "value": "sgbioiaksdemo-dns"
+        },
+        "kubernetesVersion": {
+            "value": "1.19.9"
+        },
+        "networkPlugin": {
+            "value": "kubenet"
+        },
+        "enableRBAC": {
+            "value": true
+        },
+        "enablePrivateCluster": {
+            "value": false
+        },
+        "enableHttpApplicationRouting": {
+            "value": false
+        },
+        "enableAzurePolicy": {
+            "value": false
+        },
+        "vmssNodePool": {
+            "value": true
+        },
+        "workspaceName": {
+            "value": "sgtest-log-analytics-workspace"
+        },
+        "omsWorkspaceId": {
+            "value": "/subscriptions/7972e253-3759-4f97-a678-aa3a95a27b97/resourcegroups/sg-bioi-dev-compute/providers/microsoft.operationalinsights/workspaces/sgtest-log-analytics-workspace"
+        },
+        "workspaceRegion": {
+            "value": "westus2"
+        },
+        "acrName": {
+            "value": "sgbiodevpipelines"
+        },
+        "acrResourceGroup": {
+            "value": "sg-bioi-dev-pipelines"
+        }
+    }
+}

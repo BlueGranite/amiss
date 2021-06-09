@@ -1,0 +1,7 @@
+azure-identity==1.6.0
+azure-mgmt-resource=17.0.0
+haikunator==2.1.0
+azure-storage-queue==12.1.6
+PyYAML==5.4.1
+kubernetes==17.17.0
+azure-storage-file-datalake==12.3.1

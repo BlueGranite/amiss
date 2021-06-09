@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: helloer
+spec:
+  restartPolicy: Never
+  containers:
+  - name: stub
+    image: sgbiodevpipelines.azurecr.io/seagen-stub-analysis-task:aks.5cc404d
+    env:
+      - name: QUEUE_ADDRESS
+        value: queue:5000
+      - name: QUEUE_NAME
+        value: demoqueue
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+  tolerations:
+  - key: "pipeline"
+    operator: "Equal"
+    value: "rnaseq"
+    effect: "NoSchedule"
+  nodeSelector:
+    pipeline: rnaseq
