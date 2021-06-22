@@ -2,8 +2,8 @@ azure_subscription_id: 7972e253-3759-4f97-a678-aa3a95a27b97
 azure_tenant_id: e7c47320-8eba-4356-aad3-18c1dd75004a
 azure_resource_group: sg-bioi-dev-pipelines
 azure_location: westus2
-azure_queue_storage_url: https://sgbiodevpipelinesdls.queue.core.windows.net/
-azure_key_vault_name: sg-pipelines-keyvault
+azure_queue_storage_url: https://genomicsdatalake.queue.core.windows.net/
+azure_key_vault_name: bg-pipelines-keyvault
 azure_managed_identity_clientId: 49c1328d-91e3-43d9-92cb-5522c74e1167
 analysis_types:
   amiss:

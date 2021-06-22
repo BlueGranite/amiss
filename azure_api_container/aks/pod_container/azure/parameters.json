@@ -3,13 +3,13 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "resourceName": {
-            "value": "sgbioiaksdemo"
+            "value": "amissks"
         },
         "location": {
-            "value": "westus2"
+            "value": "eastus"
         },
         "dnsPrefix": {
-            "value": "sgbioiaksdemo-dns"
+            "value": "amissks-dns"
         },
         "kubernetesVersion": {
             "value": "1.19.9"
@@ -33,19 +33,19 @@
             "value": true
         },
         "workspaceName": {
-            "value": "sgtest-log-analytics-workspace"
+            "value": "bgamiss-log-analytics-workspace"
         },
         "omsWorkspaceId": {
-            "value": "/subscriptions/7972e253-3759-4f97-a678-aa3a95a27b97/resourcegroups/sg-bioi-dev-compute/providers/microsoft.operationalinsights/workspaces/sgtest-log-analytics-workspace"
+            "value": "/subscriptions/66aa47b7-749d-416e-8db9-b98bc14a07a1/resourcegroups/amiss_framework/providers/microsoft.operationalinsights/workspaces/bgamiss-log-analytics-workspace"
         },
         "workspaceRegion": {
-            "value": "westus2"
+            "value": "eastus"
         },
         "acrName": {
-            "value": "sgbiodevpipelines"
+            "value": "amissks-dns"
         },
         "acrResourceGroup": {
-            "value": "sg-bioi-dev-pipelines"
+            "value": "amiss_framework"
         }
     }
 }

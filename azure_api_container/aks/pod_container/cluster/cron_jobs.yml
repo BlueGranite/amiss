@@ -37,11 +37,11 @@ spec:
           serviceAccountName: queue-acc
           containers:
           - name: queue-activator
-            image: sgbiodevpipelines.azurecr.io/seagen-azure-qks-queue:07b719a
+            image: bgamiss.azurecr.io/bgamiss_queue:v1
             imagePullPolicy: IfNotPresent
             command:
               - python3
-              - /opt/seagen-azure-aks-queue/kubernetes_activator.py 
+              - /opt/blueprintgenetics-azure-aks-queue/kubernetes_activator.py 
             resources:
               limits:
                 memory: "64Mi"

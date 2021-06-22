@@ -21,7 +21,7 @@ service = QueueServiceClient(account_url="https://genomicsdatalake.queue.core.wi
                              credential="gfHgyeOy7iWjXKi9p2ijKCgnzVR1Da8/pXtQTkHUHGqhWVrCOGhqfI1ifbDxTZ/sFCg/u/JnQIstA/BcUD8mUA==")
 
 # Set config according to environment
-DEVENV = os.getenv('SG_DEV_ENV')
+DEVENV = os.getenv('BG_DEV_ENV')
 if DEVENV:
     config.load_kube_config()
 else:

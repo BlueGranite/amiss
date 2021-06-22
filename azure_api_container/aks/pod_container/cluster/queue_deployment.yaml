@@ -14,7 +14,7 @@ spec:
       serviceAccountName: queue-acc
       containers:
       - name: queue
-        image: sgbiodevpipelines.azurecr.io/seagen-azure-aks-queue:5218c29
+        image: bgamiss.azurecr.io/bgamiss_queue:v1
         ports:
         - containerPort: 80
         resources:

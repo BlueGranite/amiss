@@ -54,3 +54,5 @@ rsconnect/
 # (generally) large data files
 *.vcf
 output/*
+data/clinvar_20190624.vep.vcf_head_10000
+outputs/output/data/full_clingen.csv

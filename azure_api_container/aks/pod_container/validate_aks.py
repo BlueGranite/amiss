@@ -117,27 +117,3 @@ for k,v in specified_analysis_types.items():
         validation_errors += 1
         logger.error("Analysis type {} specified in configuration but no {} storage queue present in Azure".format(k, queue_name))
 
-## The deployment from the python API just doesn't work - there is a problem with the serialization and MS has seemingly
-## abandoned this - multiple breaking changes in API, they just don't seem to care.
-## the solution for now is that we just deploy using the CLI
-# if sys.argv[1] == "deploy" and validation_errors == 0:
-    # New way
-    # deployment_properties = DeploymentProperties(mode=DeploymentMode.incremental, 
-    #                                              template=template, 
-    #                                              parameters=parameters)
-    # deployment_object = Deployment(location="uswest2", properties=deployment_properties)
-    # arm_client.deployments.begin_validate(resource_group, 
-    #                                       "aks-deployment-{}".format(name_generator.haikunate()),
-    #                                       deployment_object)
-
-    # Old way
-    # deployment_properties = {"properties": {"mode": DeploymentMode.incremental, "template": template, "parameters": parameters}}
-    # validation = arm_client.deployments.validate(resource_group, "aks-deployment-{}".format(name_generator.haikunate()), deployment_properties)
-
-
-#     deployment = arm_client.deployments.begin_create_or_update(resource_group, 
-#                                                                "aks-deployment-{}".format(name_generator.haikunate()),
-#                                                                deployment_object)
-#     deployment.wait()
-
-#     print(deployment.result().properties.outputs)
